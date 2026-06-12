@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Container, Row, Carousel, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
 function Footer (){
@@ -17,7 +17,7 @@ function Footer (){
     const windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
 
     windowScroll > heightToHidden ? setIsVisible(true) : setIsVisible(false);
-  }
+  };
 
   useEffect(()=>{
     window.addEventListener("scroll", listenToScroll);
@@ -27,7 +27,7 @@ function Footer (){
     <footer>
       <Container>
         <Row>
-          <Col sm={6} className='mb-4 mb-lg-0'>
+          <Col sm={6} lg={3} className='mb-4 mb-lg-0'>
             <div className='text-center'>
               <h5>Location</h5>
               <p>5505 Waterford District</p>
@@ -35,7 +35,7 @@ function Footer (){
               <p>United States</p>
             </div>
           </Col>
-          <Col sm={6} className='mb-4 mb-lg-0'>
+          <Col sm={6} lg={3} className='mb-4 mb-lg-0'>
             <div className='text-center'>
               <h5>Working Hours</h5>
               <p>Mon-Fri: 9:00AM - 10:00PM</p>
@@ -43,7 +43,7 @@ function Footer (){
               <p>Sunday: 12:00PM - 5:00PM</p>
             </div>
           </Col>
-          <Col sm={6} className='mb-4 mb-lg-0'>
+          <Col sm={6} lg={3} className='mb-4 mb-lg-0'>
             <div className='text-center'>
               <h5>Order Now</h5>
               <p>Quaerat neque purus ipsum</p>
@@ -54,7 +54,7 @@ function Footer (){
               </p>
             </div>
           </Col>
-          <Col sm={6} className='mb-4 mb-lg-0'>
+          <Col sm={6} lg={3} className='mb-4 mb-lg-0'>
             <div className='text-center'>
               <h5>Follow Us</h5>
               <p>Quaerat neque purus ipsum</p>
@@ -118,4 +118,4 @@ function Footer (){
   );
 }
 
-export default Footer
+export default Footer;

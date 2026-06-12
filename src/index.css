@@ -106,7 +106,7 @@ a{
   border-color: var(--light-red);
 }
 
-.btn-red:hover,
+.btn_red:hover,
 .btn_red:focus{
   color: var(--light-red);
   background: transparent;
