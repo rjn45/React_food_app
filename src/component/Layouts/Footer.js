@@ -1,9 +1,29 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
 import { Container, Row, Carousel, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
 function Footer (){
+  //Scroll State
+  const [isVisible, setIsVisible] = useState(false);
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",  
+    });
+  };
+
+  const listenToScroll = () => {
+    let heightToHidden = 250;
+    const windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+    windowScroll > heightToHidden ? setIsVisible(true) : setIsVisible(false);
+  }
+
+  useEffect(()=>{
+    window.addEventListener("scroll", listenToScroll);
+  });
   return (
+    <>
     <footer>
       <Container>
         <Row>
@@ -41,22 +61,22 @@ function Footer (){
               <ul className='list-unstyled text-center mt-2'>
                 <li>
                   <Link to="/">
-                    <i className='bi-bi-facebook'></i>
+                    <i class='bi bi-facebook'></i>
                   </Link>
                 </li>
                 <li>
                   <Link to="/">
-                    <i className='bi-bi-twitter'></i>
+                    <i class='bi bi-twitter'></i>
                   </Link>
                 </li>
                 <li>
                   <Link to="/">
-                    <i className='bi-bi-instagram'></i>
+                    <i class='bi bi-instagram'></i>
                   </Link>
                 </li>
                 <li>
                   <Link to="/">
-                    <i className='bi-bi-youtube'></i>
+                    <i class='bi bi-youtube'></i>
                   </Link>
                 </li>
               </ul>
@@ -87,7 +107,15 @@ function Footer (){
         </Row>
       </Container>
     </footer>
-  )
+
+    {/* Scroll To Top */}
+    {isVisible && (
+      <div className='scroll_top' onClick={scrollTop}>
+        <i class="bi bi-arrow-up"></i>
+      </div>
+    )}
+    </>
+  );
 }
 
 export default Footer
